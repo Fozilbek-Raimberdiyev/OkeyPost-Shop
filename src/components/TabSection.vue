@@ -6,50 +6,50 @@
                 <div class="button-next"><i class="fa-solid fa-arrow-right-long"></i></div>
             </div>
             <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
+            <swiper class="swiper-wrapper" :options="myOptions">
 
                 <!-- Slides -->
-                <div class="swiper-slide">
+                <swiper-slide class="swiper-slide">
                     <div class="swiper-item d-flex justify-content-center align-items-center">
                         <img src="@/assets/type1.png" alt="">
                         <p>Одежда</p>
                     </div>
-                </div>
-                <div class="swiper-slide">
+                </swiper-slide>
+                <swiper-slide class="swiper-slide">
                     <div class="swiper-item d-flex justify-content-center align-items-center">
                         <img src="@/assets/type2.png" alt="">
                         <p>Электроника</p>
                     </div>
-                </div>
-                <div class="swiper-slide">
+                </swiper-slide>
+                <swiper-slide class="swiper-slide">
                     <div class="swiper-item d-flex justify-content-center align-items-center">
                         <img src="@/assets/type3.png" alt="">
                         <p>Аксессуары</p>
                     </div>
-                </div>
-                <div class="swiper-slide">
+                </swiper-slide>
+                <swiper-slide class="swiper-slide">
                     <div class="swiper-item d-flex justify-content-center align-items-center">
                         <img src="@/assets/type4.png" alt="">
                         <p>Для детей</p>
                     </div>
-                </div>
-                <div class="swiper-slide">
+                </swiper-slide>
+                <swiper-slide class="swiper-slide">
                     <div class="swiper-item d-flex justify-content-center align-items-center">
                         <img src="@/assets/type5.png" alt="">
                         <p>Для спорта</p>
                     </div>
-                </div>
-                <div class="swiper-slide">
+                </swiper-slide>
+                <swiper-slide class="swiper-slide">
                     <div class="swiper-item d-flex justify-content-center align-items-center">
                         <img src="@/assets/type6.png" alt="">
                         <p>Косметика</p>
                     </div>
-                </div>
-            </div>
+                </swiper-slide>
+            </swiper>
 
             <div class="second-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                <swiper class="swiper-wrapper" :options="cardOptions">
+                    <swiper-slide class="swiper-slide">
                         <div class="tab-item row g-5">
                             <div class="col-lg-4">
                                 <div class="left-tab-items">
@@ -105,8 +105,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
                         <div class="tab-item row g-5">
                             <div class="col-lg-4">
                                 <div class="left-tab-items">
@@ -162,8 +162,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
                         <div class="tab-item swiper-slide row g-5">
                             <div class="col-lg-4">
                                 <div class="left-tab-items">
@@ -219,8 +219,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
                         <div class="tab-item swiper-slide row g-5">
                             <div class="col-lg-4">
                                 <div class="left-tab-items">
@@ -276,8 +276,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
                         <div class="tab-item swiper-slide row g-5">
                             <div class="col-lg-4">
                                 <div class="left-tab-items">
@@ -333,8 +333,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
                         <div class="tab-item swiper-slide row g-5">
                             <div class="col-lg-4">
                                 <div class="left-tab-items">
@@ -390,9 +390,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </swiper-slide>
+                </swiper>
             </div>
+
 
 
         </div>
@@ -401,9 +402,47 @@
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
+ import 'swiper/css/swiper.min.css'
 export default {
-  
+    components: {
+      Swiper,
+      SwiperSlide
+    },
+    data() {
+        return {
+            myOptions: {
+                slidesPerView: 2,
+                breakpoints: {
+                    // when window width is >= 320px
+                    320: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                    },
+                    // when window width is >= 480px
+                    480: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                    },
+                    // when window width is >= 640px
+                    640: {
+                    slidesPerView: 4,
+                    spaceBetween: 40
+                    },
+                    880: {
+                        slidesPerView: 6,
+                        spaceBetween: 40
+                    }
+                }
+            },
+            cardOptions: {
+                slidesPerView : 1,
+                effect: "cards",
+                autoplay: true
+            }
+        }
+    }
 }
 </script>
 
